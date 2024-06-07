@@ -50,7 +50,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/sdm845/KernelSU
           KSU_VERSION=`expr 10000 + \`git rev-list --count HEAD\` + 200`
-          TARGET_KERNEL="Mi8Pro-LineageKernel-KernelSU$KSU_VERSION"
+          TARGET_KERNEL="Mi8-PixelExperienceKernel-KernelSU$KSU_VERSION"
           echo "[+]KernelSU Version: $KSU_VERSION"
           echo "[+]Target file: $TARGET_KERNEL"
           cd $GITHUB_WORKSPACE/AnyKernel3
