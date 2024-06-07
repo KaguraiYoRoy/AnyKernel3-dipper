@@ -43,7 +43,7 @@ jobs:
           args="-j$THREAD O=$OUT_DIR ARCH=$ARCH CROSS_COMPILE=$CROSS_COMPILE CROSS_COMPILE_ARM32=$CROSS_COMPILE_ARM32 CC=$CC CLANG_TRIPLE=$CLANG_TRIPLE $CC_ADDITION_FLAGS"
           echo "[+]Args: $args"
           echo "[+}Generate .config"
-          make equuleus_user_defconfig $args
+          make dipper_defconfig $args
           echo "[+]Begin Build"
           make $args
       - name: Compress
