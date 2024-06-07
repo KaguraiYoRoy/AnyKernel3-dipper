@@ -66,4 +66,4 @@ jobs:
         with:
           tag_name: Android13
           files: |
-            Mi8Pro*.zip
+            Mi8*.zip
