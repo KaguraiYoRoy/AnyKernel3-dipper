@@ -4,13 +4,13 @@
 ### AnyKernel setup
 # global properties
 properties() { '
-kernel.string=Xiaomi 8 Pro Kernel by Kagura iYoRoy @ iYoRoy Studio
+kernel.string=Xiaomi 8 PixelExperience Kernel by Kagura iYoRoy @ iYoRoy Institute
 do.devicecheck=1
 do.modules=0
 do.systemless=0
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=equuleus
+device.name1=dipper
 supported.versions=13
 supported.patchlevels=
 '; } # end properties
