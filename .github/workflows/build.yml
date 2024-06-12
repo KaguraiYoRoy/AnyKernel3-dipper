@@ -19,7 +19,7 @@ jobs:
           git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 -b android-13.0.0_r43 clang
           git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b android-10.0.0_r32 --depth=1
           git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b android-10.0.0_r32 --depth=1
-          git clone https://github.com/KaguraiYoRoy/AnyKernel3-equuleus AnyKernel3 --depth=1
+          git clone https://github.com/KaguraiYoRoy/AnyKernel3-dipper AnyKernel3 --depth=1
       - name: Setup KernelSU
         run: |
           cd $GITHUB_WORKSPACE/sdm845
