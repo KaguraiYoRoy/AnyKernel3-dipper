@@ -16,9 +16,7 @@ jobs:
           sudo apt install zip bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libncurses5 libsdl1.2-dev libssl-dev libwxgtk3.0-gtk3-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev make unzip python-is-python3 libelf1 libelf-dev libelf++0 libelfin-dev
           echo "[+]Clone dependencies:"
           git clone https://github.com/KaguraiYoRoy/android_kernel_xiaomi_sdm845 -b dipper-thirteen sdm845 --depth=1
-          git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 -b android-13.0.0_r43 clang
-          git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b android-10.0.0_r32 --depth=1
-          git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9 -b android-10.0.0_r32 --depth=1
+          git clone https://github.com/Xiaomi-sdm845-KSU/android-kernel-tools.git -b clang13 --depth=1 toolchain
           git clone https://github.com/KaguraiYoRoy/AnyKernel3-dipper AnyKernel3 --depth=1
       - name: Setup KernelSU
         run: |
@@ -28,13 +26,13 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/sdm845
           ARCH="arm64"
-          CLANG_DIR="$GITHUB_WORKSPACE/clang/clang-r450784d"
+          CLANG_DIR="$GITHUB_WORKSPACE/toolchain/clang/host/linux-x86/clang-r428724"
           CC="$CLANG_DIR/bin/clang"
           export PATH="$CLANG_DIR/bin:$PATH"
           OUT_DIR="./out"
           CLANG_TRIPLE="aarch64-linux-gnu-"
-          CROSS_COMPILE="$GITHUB_WORKSPACE/aarch64-linux-android-4.9/bin/aarch64-linux-androidkernel-"
-          CROSS_COMPILE_ARM32="$GITHUB_WORKSPACE/arm-linux-androideabi-4.9/bin/arm-linux-androidkernel-"
+          CROSS_COMPILE="$GITHUB_WORKSPACE/toolchain/gcc/linux-x86/aarch64/gcc-linaro-7.5.0/bin/aarch64-linux-gnu-"
+          CROSS_COMPILE_ARM32="$GITHUB_WORKSPACE/toolchain/arm/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-"
           CC_ADDITION_FLAGS="AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip LLVM_IAS=1 LLVM=1 LD=ld.lld"
           THREAD=$(nproc --all)
           ANYKERNEL_DIR="$GITHUB_WORKSPACE/AnyKernel3"
